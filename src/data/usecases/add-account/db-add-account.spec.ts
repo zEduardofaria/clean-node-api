@@ -99,7 +99,7 @@ describe('DbAddAccount UseCase', () => {
     });
   });
 
-  test('Should throw if Encrypter throws', async () => {
+  test('Should throw if DbAddAccount throws', async () => {
     const { sut, addAccountRepositoryStub } = makeSut();
     jest
       .spyOn(addAccountRepositoryStub, 'add')
