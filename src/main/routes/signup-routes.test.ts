@@ -1,8 +1,8 @@
-import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper';
 import request from 'supertest';
 import app from '../config/app';
+import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper';
 
-describe('SignUp routes', () => {
+describe('SignUp Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL);
   });
@@ -12,7 +12,7 @@ describe('SignUp routes', () => {
   });
 
   beforeEach(async () => {
-    const accountCollection = MongoHelper.getConnection('accounts');
+    const accountCollection = MongoHelper.getCollection('accounts');
     await accountCollection.deleteMany({});
   });
 
@@ -20,10 +20,10 @@ describe('SignUp routes', () => {
     await request(app)
       .post('/api/signup')
       .send({
-        name: 'Eduardo',
-        email: 'z.eduardofaria@gmail.com',
-        password: '123123',
-        confirmPassword: '123123'
+        name: 'Rodrigo',
+        email: 'rodrigo.manguinho@gmail.com',
+        password: '123',
+        passwordConfirmation: '123'
       })
       .expect(200);
   });
