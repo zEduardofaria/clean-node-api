@@ -5,7 +5,8 @@ import {
 } from '../../../presentation/errors';
 import {
   badRequest,
-  serverError
+  serverError,
+  unauthorized
 } from '../../../presentation/helpers/http-helper';
 import {
   Controller,
@@ -41,7 +42,11 @@ export class LoginController implements Controller {
         return badRequest(new InvalidParamError('email'));
       }
 
-      await this.authentication.auth(email, password);
+      const accessToken = await this.authentication.auth(email, password);
+
+      if (!accessToken) {
+        return unauthorized();
+      }
     } catch (error) {
       return serverError(error);
     }
