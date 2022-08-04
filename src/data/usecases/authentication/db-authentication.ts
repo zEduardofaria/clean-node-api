@@ -1,3 +1,4 @@
+import { HashComparer } from '@/data/protocols/criptography/hash-comparer';
 import {
   Authentication,
   AuthenticationModel
@@ -6,11 +7,20 @@ import { LoadAccountByEmailRepository } from '../../protocols/db/load-account-by
 
 export class DbAuthentication implements Authentication {
   constructor(
-    private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository
+    private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository,
+    private readonly hashComparer: HashComparer
   ) {}
 
   async auth(authentication: AuthenticationModel): Promise<string> {
-    await this.loadAccountByEmailRepository.load(authentication.email);
+    const account = await this.loadAccountByEmailRepository.load(
+      authentication.email
+    );
+    if (account) {
+      await this.hashComparer.compare(
+        authentication.password,
+        account.password
+      );
+    }
     return null;
   }
 }
