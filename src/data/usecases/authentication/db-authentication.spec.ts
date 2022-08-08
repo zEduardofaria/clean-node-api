@@ -172,7 +172,7 @@ describe('DbAuthentication UseCase', () => {
     expect(updateSpy).toHaveBeenCalledWith('any_id', 'any_token');
   });
 
-  test('Should throws if TokenGenerator throws', async () => {
+  test('Should throws if UpdateAccessTokenRepository throws', async () => {
     const { sut, updateAccessTokenRepository } = makeSut();
     jest
       .spyOn(updateAccessTokenRepository, 'update')
