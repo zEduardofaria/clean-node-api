@@ -159,7 +159,7 @@ describe('DbAuthentication UseCase', () => {
     await expect(promise).rejects.toThrow();
   });
 
-  test('Should call Encrypter with correct id', async () => {
+  test('Should return a token on success', async () => {
     const { sut } = makeSut();
     const accessToken = await sut.auth(makeFakeAuthentication());
     expect(accessToken).toBe('any_token');
