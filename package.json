@@ -38,7 +38,7 @@
     "@types/node": "^18.0.0",
     "@types/supertest": "^2.0.12",
     "@types/validator": "^13.7.3",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
@@ -68,6 +68,6 @@
     "validator": "^13.7.0"
   },
   "engines": {
-    "node": "16.x"
+    "node": "14.x"
   }
 }
