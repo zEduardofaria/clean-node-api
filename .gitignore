@@ -107,3 +107,5 @@ dist
 globalConfig.json
 
 data
+
+.vscode
