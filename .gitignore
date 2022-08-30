@@ -106,6 +106,6 @@ dist
 # MongoDB Memory file
 globalConfig.json
 
-data
+/data
 
 .vscode
