@@ -22,7 +22,7 @@ const makeLoadAccountByEmailRepository = (): LoadAccountByEmailRepository => {
     implements LoadAccountByEmailRepository
   {
     async loadByEmail(email: string): Promise<AccountModel> {
-      return new Promise(resolve => resolve(makeFakeAccount()));
+      return new Promise(resolve => resolve(null));
     }
   }
   return new LoadAccountByEmailRepositoryStub();
@@ -118,6 +118,16 @@ describe('DbAddAccount UseCase', () => {
 
     const promise = sut.add(makeFakeAccountData());
     await expect(promise).rejects.toThrow();
+  });
+
+  test('Should return null if LoadAccountByEmailRepository not return null', async () => {
+    const { sut, loadAccountByEmailRepositoryStub } = makeSut();
+    jest
+      .spyOn(loadAccountByEmailRepositoryStub, 'loadByEmail')
+      .mockResolvedValueOnce(makeFakeAccount());
+
+    const account = await sut.add(makeFakeAccountData());
+    expect(account).toBeNull();
   });
 
   test('Should return an account on success', async () => {
