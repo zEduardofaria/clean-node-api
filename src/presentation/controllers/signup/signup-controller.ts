@@ -1,4 +1,10 @@
-import { badRequest, serverError, ok } from '../../helpers/http/http-helper';
+import { EmailInUseError } from '../../../presentation/errors';
+import {
+  badRequest,
+  serverError,
+  ok,
+  forbidden
+} from '../../helpers/http/http-helper';
 import {
   Controller,
   HttpResponse,
@@ -30,6 +36,10 @@ export class SignUpController implements Controller {
         email,
         password
       });
+
+      if (!account) {
+        return forbidden(new EmailInUseError());
+      }
 
       const accessToken = await this.authentication.auth({
         email,
