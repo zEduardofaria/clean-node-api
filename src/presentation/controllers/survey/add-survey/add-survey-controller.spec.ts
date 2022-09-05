@@ -70,7 +70,7 @@ describe('AddSurvey Controller', () => {
     expect(httpResponse).toEqual(badRequest(new Error()));
   });
 
-  test('Should return 400 if Validation fails', async () => {
+  test('Should call AddSurvey with correct values', async () => {
     const { sut, addSurveyStub } = makeSut();
     const addSpy = jest.spyOn(addSurveyStub, 'add');
     const httpRequest = makeFakeRequest();
