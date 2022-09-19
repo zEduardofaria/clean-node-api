@@ -2,8 +2,12 @@ import jwt from 'jsonwebtoken';
 import { JwtAdapter } from './jwt-adapter';
 
 jest.mock('jsonwebtoken', () => ({
-  async sign(payload: any, secret: string): Promise<string> {
+  async sign(): Promise<string> {
     return Promise.resolve('any_token');
+  },
+
+  async verify(): Promise<string> {
+    return Promise.resolve('any_value');
   }
 }));
 
@@ -32,6 +36,15 @@ describe('JWT Adapter', () => {
         throw new Error();
       });
       await expect(sut.encrypt('any_id')).rejects.toThrow();
+    });
+  });
+
+  describe('sign()', () => {
+    test('Should call verify with correct values', async () => {
+      const sut = makeSut();
+      const verifySpy = jest.spyOn(jwt, 'verify');
+      await sut.decrypt('any_token');
+      expect(verifySpy).toHaveBeenCalledWith('any_token', 'secret');
     });
   });
 });
