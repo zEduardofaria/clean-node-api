@@ -41,10 +41,10 @@ const makeLoadSurveys = (): LoadSurveys => {
   return new LoadSurveysStub();
 };
 
-interface SutTypes {
+type SutTypes = {
   loadSurveysStub: LoadSurveys;
   sut: LoadSurveysController;
-}
+};
 
 const makeSut = (): SutTypes => {
   const loadSurveysStub = makeLoadSurveys();

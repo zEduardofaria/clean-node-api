@@ -30,11 +30,11 @@ const makeLoadAccountByTokenRepository = (): LoadAccountByTokenRepository => {
   return new LoadAccountByTokenRepositoryStub();
 };
 
-interface SutTypes {
+type SutTypes = {
   decrypterStub: Decrypter;
   sut: DbLoadAccountByToken;
   loadAccountByTokenRepositorStub: LoadAccountByTokenRepository;
-}
+};
 
 const makeSut = (): SutTypes => {
   const decrypterStub = makeDecrypter();

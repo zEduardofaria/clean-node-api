@@ -1,13 +1,11 @@
-import { WithId } from 'mongodb';
-
-export interface SurveyModel {
+export type SurveyModel = {
   id: string;
   question: string;
   answers: SurveyAnswerModel[];
   date: Date;
-}
+};
 
-export interface SurveyAnswerModel {
+export type SurveyAnswerModel = {
   image?: string;
   answer: string;
-}
+};
