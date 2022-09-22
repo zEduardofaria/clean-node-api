@@ -1,4 +1,4 @@
-import { LoadSurveysRepository } from '../../protocols/db/survey/load-surveys-repository';
+import { LoadSurveysRepository } from '@/data/protocols/db/survey/load-surveys-repository';
 import { SurveyModel } from '../add-account/db-add-account-protocols';
 import { DbLoadSurveys } from './db-load-surveys';
 
