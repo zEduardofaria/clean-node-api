@@ -1,5 +1,3 @@
-[![Coverage Status](https://coveralls.io/repos/github/zEduardofaria/clean-ts-api/badge.svg)](https://coveralls.io/github/zEduardofaria/clean-ts-api)
-[![Known Vulnerabilities](https://snyk.io/test/github/zEduardofaria/clean-ts-api/badge.svg)](https://snyk.io/test/github/zEduardofaria/clean-ts-api)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 # **Clean Node API**
