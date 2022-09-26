@@ -59,7 +59,7 @@ export class AccountMongoRepository
     return account !== null;
   }
 
-  async updateAccessToken(id: string, token: string): Promise<void> {
+  async updateAccessToken(id: any, token: string): Promise<void> {
     const accountCollection = MongoHelper.getCollection('accounts');
     await accountCollection.updateOne(
       {
