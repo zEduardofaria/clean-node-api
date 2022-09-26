@@ -11,6 +11,10 @@
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/semi": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
+    "@typescript-eslint/brace-style": "off",
     "import/export": "off"
   }
 }
